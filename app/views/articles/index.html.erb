@@ -1,0 +1,21 @@
+<div class="container">
+  <h1>Listing Articles</h1>
+
+  <%= link_to 'My Blog', controller: 'articles' %>
+  <%= link_to 'New article', new_article_path %>
+  
+  <table>
+    <tr>
+      <th>Title</th>
+      <th>Text</th>
+      <th></th>
+    </tr>
+    <% @articles.each do |article| %>
+      <tr>
+        <td><%= article.title %></td>
+        <td><%= article.text %></td>
+        <td><%= link_to 'show', article_path(article) %></td>
+      </tr>
+    <% end %>
+  </table>
+</div>
