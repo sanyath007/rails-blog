@@ -1,22 +1,22 @@
 <div class="container">
   <h1>Listing Articles</h1>
 
-  <%= link_to 'My Blog', controller: 'articles' %>
-  <%= link_to 'New article', new_article_path %>
+  <%= link_to 'My Blog', { controller => 'articles'}, class: "btn btn-secondary" %>
+  <%= link_to 'New article', new_article_path, class: "btn btn-primary ml-1" %>
   
-  <table>
+  <table class="table table-bordered mt-2">
     <tr>
-      <th>Title</th>
-      <th>Text</th>
-      <th></th>
+      <th class="text-center">Title</th>
+      <th class="text-center">Text</th>
+      <th class="text-center">Actions</th>
     </tr>
     <% @articles.each do |article| %>
       <tr>
         <td><%= article.title %></td>
         <td><%= article.text %></td>
-        <td><%= link_to 'Show', article_path(article) %></td>
-        <td><%= link_to 'Edit', edit_article_path(article) %></td>
-        <td>
+        <td class="text-center">
+          <%= link_to 'Show', article_path(article) %>
+          <%= link_to 'Edit', edit_article_path(article) %>
           <%= link_to 'Delete', 
                         article_path(article), 
                         method: :delete, 
